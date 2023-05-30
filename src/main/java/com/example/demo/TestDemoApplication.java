@@ -8,6 +8,6 @@ public class TestDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TestDemoApplication.class, args);
-        System.out.println("-----------test项目启动成功-----------");
+        System.out.println("-----------test项目启动成功------------");
     }
 }

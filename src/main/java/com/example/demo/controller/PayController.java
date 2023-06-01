@@ -56,6 +56,7 @@ public class PayController {
     @PostMapping("/test")
     public ResponseDto test() {
         List<AuthRole> authRoles = authRoleMapper.selectAll();
+        log.info("/test请求");
         return new ResponseDto<>(RespEnum.MSG_SUCCESS.getCode(), RespEnum.MSG_SUCCESS.getMsg(),authRoles);
     }
 }

@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import cn.hutool.core.bean.BeanUtil;
 import com.example.demo.RespDto.ResponseDto;
 import com.example.demo.RespEnum.RespEnum;
+import com.example.demo.mapper.AuthRoleMapper;
+import com.example.demo.domain.AuthRole;
 import com.example.demo.dto.CallBackReqDto;
 import com.example.demo.dto.PayReqDto;
 import com.example.demo.dto.PayRespDto;
@@ -12,12 +14,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @Slf4j
-@RequestMapping("/payDemo")
+@RequestMapping("/testDemo")
 public class PayController {
     @Autowired
     private PayService payService;
+
+    @Autowired
+    private AuthRoleMapper authRoleMapper;
 
     /**
      * 支付接口
@@ -43,4 +50,12 @@ public class PayController {
         return payService.callBack(callBackReqDto);
     }
 
+    /**
+     * test
+     */
+    @PostMapping("/test")
+    public ResponseDto test() {
+        List<AuthRole> authRoles = authRoleMapper.selectAll();
+        return new ResponseDto<>(RespEnum.MSG_SUCCESS.getCode(), RespEnum.MSG_SUCCESS.getMsg(),authRoles);
+    }
 }

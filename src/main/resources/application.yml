@@ -1,0 +1,14 @@
+#配置数据库连接
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.83.130:3306/docker_test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    druid: #配置数据池
+      initial-size: 5
+      max-active: 300
+
+#声明xml文件路径
+mybatis:
+  mapper-locations: classpath:**/mapper/*.xml

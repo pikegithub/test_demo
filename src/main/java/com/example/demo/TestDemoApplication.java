@@ -12,6 +12,6 @@ public class TestDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TestDemoApplication.class, args);
-        System.out.println("-----------started-----------");
+        System.out.println("-----------started------------");
     }
 }
